@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THARAZZ EVENTS | Luxury Fashion Expo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- WELCOME PAGE -->
+    <section id="welcome" class="page active">
+        <header>
+            <h1>THARAZZ EVENTS</h1>
+            <p>Luxury Fashion Expo</p>
+        </header>
+
+        <div class="welcome-content">
+            <h2>Discover Your Style</h2>
+            <p>Luxury Fashion • Elegant Collections • Exclusive Events</p>
+            <button onclick="showPage('signup')">Get Started</button>
+        </div>
+    </section>
+
+    <!-- SIGNUP PAGE -->
+    <section id="signup" class="page">
+        <div class="form-container">
+            <h2>Create Account</h2>
+
+            <form id="signupForm">
+                <label for="signupName">Full Name</label>
+                <input id="signupName" type="text" required>
+
+                <label for="signupEmail">Email</label>
+                <input id="signupEmail" type="email" required>
+
+                <label for="signupPassword">Password</label>
+                <input id="signupPassword" type="password" minlength="8" required>
+
+                <button type="submit">Sign Up</button>
+            </form>
+
+            <p id="signupMessage" role="status"></p>
+            <p>Already registered?</p>
+            <button onclick="showPage('login')">Login</button>
+        </div>
+    </section>
+
+    <!-- LOGIN PAGE -->
+    <section id="login" class="page">
+        <div class="form-container">
+            <h2>Welcome Back</h2>
+
+            <form id="loginForm">
+                <label for="loginEmail">Email</label>
+                <input id="loginEmail" type="email" required>
+
+                <label for="loginPassword">Password</label>
+                <input id="loginPassword" type="password" required>
+
+                <button type="submit">Login</button>
+            </form>
+
+            <p id="loginMessage" role="status"></p>
+            <button onclick="showPage('signup')">Create Account</button>
+        </div>
+    </section>
+
+    <!-- HOME PAGE -->
+    <section id="home" class="page">
+        <header>
+            <h1>THARAZZ EVENTS</h1>
+            <p>Luxury Fashion Expo</p>
+        </header>
+
+        <nav>
+            <button onclick="showPage('home')">Home</button>
+            <button onclick="showPage('products')">Dresses</button>
+            <button onclick="showPage('booking')">Book Tickets</button>
+            <button onclick="showPage('scanner')">Demo Scanner</button>
+            <button onclick="logoutUser()">Logout</button>
+        </nav>
+
+        <div class="home-content">
+            <h2>Welcome to THARAZZ!</h2>
+            <p>Find your perfect look from our exclusive collections.</p>
+            <button onclick="showPage('products')">Explore Dresses</button>
+            <button onclick="showPage('booking')">Book Event Ticket</button>
+        </div>
+    </section>
+
+    <!-- DRESS COLLECTIONS -->
+    <section id="products" class="page">
+        <h2 class="section-title">Our Fashion Collections</h2>
+        <p class="section-subtitle">Choose your favourite style</p>
+
+        <div class="category-buttons">
+            <button onclick="filterProducts('All')">All Dresses</button>
+            <button onclick="filterProducts('Party Dresses')">Party Dresses</button>
+            <button onclick="filterProducts('Western Dresses')">Western Dresses</button>
+            <button onclick="filterProducts('Traditional Dresses')">Traditional Dresses</button>
+            <button onclick="filterProducts('Vision Dresses')">Vision Dresses</button>
+        </div>
+
+        <div id="productList" class="product-grid"></div>
+
+        <button onclick="showPage('home')">Back to Home</button>
+    </section>
+
+    <!-- DRESS DETAILS -->
+    <section id="dressDetails" class="page">
+        <div id="dressDetailsContent"></div>
+        <button onclick="showPage('products')">Back to Collections</button>
+        <button onclick="showPage('booking')">Book Event Ticket</button>
+    </section>
+
+    <!-- TICKET BOOKING -->
+    <section id="booking" class="page">
+        <div class="form-container">
+            <h2>Book Your Fashion Expo Ticket</h2>
+
+            <form id="bookingForm">
+                <label for="ticketName">Full Name</label>
+                <input id="ticketName" type="text" required>
+
+                <label for="ticketEmail">Email</label>
+                <input id="ticketEmail" type="email" required>
+
+                <label for="ticketType">Ticket Type</label>
+                <select id="ticketType" required>
+                    <option value="">Select Ticket</option>
+                    <option value="Standard">Standard - ₹499</option>
+                    <option value="Premium">Premium - ₹999</option>
+                    <option value="VIP">VIP - ₹1999</option>
+                </select>
+
+                <label for="ticketQuantity">Number of Tickets</label>
+                <input id="ticketQuantity" type="number" min="1" max="10" value="1" required>
+
+                <p>Total: ₹<span id="ticketPrice">0</span></p>
+
+                <button type="submit">Book Ticket</button>
+            </form>
+
+            <p id="bookingMessage" role="status"></p>
+            <button onclick="showPage('home')">Back to Home</button>
+        </div>
+    </section>
+
+    <!-- SUCCESSFUL BOOKING AND DIGITAL TICKET -->
+    <section id="ticketResult" class="page">
+        <div id="printableTicket" class="ticket-card">
+            <h2>THARAZZ EVENTS</h2>
+            <h3>Booking Successful!</h3>
+            <p>Your ticket has been registered successfully.</p>
+
+            <div id="ticketDetails"></div>
+
+            <div class="qr-container">
+                <img id="ticketQR" src="" alt="Ticket QR Code">
+            </div>
+
+            <p>Booking Number:</p>
+            <h3 id="ticketNumber"></h3>
+            <p id="ticketStatus">Status: Confirmed</p>
+        </div>
+
+        <button onclick="printTicket()">Print Ticket</button>
+        <button onclick="showPage('scanner')">Verify Ticket</button>
+        <button onclick="showPage('home')">Home</button>
+    </section>
+
+    <!-- DEMO SCANNER -->
+    <section id="scanner" class="page">
+        <div class="form-container">
+            <h2>Demo Ticket Scanner</h2>
+            <p>Enter the booking number to verify a ticket.</p>
+
+            <form id="scannerForm">
+                <label for="scanTicketNumber">Booking Number</label>
+                <input id="scanTicketNumber" type="text" placeholder="Enter booking number" required>
+
+                <button type="submit">Verify Ticket</button>
+            </form>
+
+            <p id="scannerMessage" role="status"></p>
+
+            <button onclick="showPage('home')">Back to Home</button>
+        </div>
+    </section>
+
+    <!-- Set your backend URL in script.js (API_BASE) -->
+    <script src="script.js"></script>
+</body>
+</html>

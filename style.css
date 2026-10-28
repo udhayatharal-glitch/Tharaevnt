@@ -1,0 +1,690 @@
+/* =========================================
+   THARAZZ EVENTS - LUXURY FASHION EXPO
+   COMPLETE CSS
+========================================= */
+
+:root {
+    --gold: #d4af37;
+    --gold-light: #f5df91;
+    --black: #080808;
+    --dark: #151515;
+    --card: #1c1c1c;
+    --white: #ffffff;
+    --cream: #f5f0e6;
+    --muted: #bdbdbd;
+    --border: rgba(212, 175, 55, 0.35);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: var(--white);
+    background: var(--black);
+    line-height: 1.6;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button {
+    border: 1px solid var(--gold);
+    background: var(--gold);
+    color: var(--black);
+    padding: 12px 22px;
+    margin: 5px;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 18px rgba(212, 175, 55, 0.2);
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 2px solid var(--gold-light);
+    outline-offset: 3px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 13px;
+    color: var(--white);
+    background: #101010;
+    border: 1px solid #454545;
+    border-radius: 6px;
+}
+
+input::placeholder {
+    color: #999;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--gold);
+    outline: none;
+}
+
+label {
+    display: block;
+    color: var(--cream);
+    margin: 15px 0 7px;
+    font-weight: 600;
+}
+
+/* ---------- PAGE CONTROL ---------- */
+
+.page {
+    display: none;
+    min-height: 100vh;
+    padding: 25px 20px;
+    animation: pageFade 0.4s ease;
+}
+
+.page.active {
+    display: block;
+}
+
+@keyframes pageFade {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ---------- HEADER ---------- */
+
+header {
+    text-align: center;
+    padding: 25px 10px;
+    border-bottom: 1px solid var(--border);
+}
+
+header h1 {
+    color: var(--gold);
+    font-size: clamp(27px, 5vw, 46px);
+    font-weight: 800;
+    letter-spacing: 5px;
+}
+
+header p {
+    color: var(--cream);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+/* ---------- WELCOME PAGE ---------- */
+
+#welcome {
+    background:
+        radial-gradient(
+            ellipse at 50% 30%,
+            rgba(156, 112, 20, 0.24),
+            transparent 55%
+        ),
+        linear-gradient(135deg, #080808, #1c1609, #080808);
+}
+
+.welcome-content {
+    max-width: 900px;
+    margin: 110px auto;
+    padding: 30px 15px;
+    text-align: center;
+}
+
+.welcome-content h2 {
+    color: var(--white);
+    font-size: clamp(34px, 6vw, 62px);
+    line-height: 1.2;
+    margin-bottom: 22px;
+}
+
+.welcome-content p {
+    color: var(--gold-light);
+    font-size: 17px;
+    margin-bottom: 32px;
+}
+
+/* ---------- SIGNUP AND LOGIN ---------- */
+
+.form-container {
+    width: 100%;
+    max-width: 460px;
+    margin: 35px auto;
+    padding: 30px;
+    background: var(--dark);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+}
+
+.form-container h2 {
+    color: var(--gold);
+    font-size: 27px;
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.form-container > p {
+    color: var(--cream);
+    text-align: center;
+    margin: 12px 0;
+}
+
+.form-container form {
+    margin-top: 15px;
+}
+
+.form-container form button {
+    width: 100%;
+    margin: 22px 0 8px;
+}
+
+#signupMessage,
+#loginMessage,
+#bookingMessage,
+#scannerMessage {
+    overflow-wrap: anywhere;
+    color: var(--gold-light);
+    font-weight: 600;
+}
+
+/* ---------- NAVIGATION ---------- */
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 22px 0;
+}
+
+nav button {
+    min-width: 105px;
+}
+
+/* ---------- HOME PAGE ---------- */
+
+#home {
+    background:
+        radial-gradient(
+            ellipse at top right,
+            rgba(212, 175, 55, 0.12),
+            transparent 45%
+        ),
+        var(--black);
+}
+
+.home-content {
+    max-width: 850px;
+    margin: 80px auto;
+    padding: 25px;
+    text-align: center;
+}
+
+.home-content h2 {
+    color: var(--gold);
+    font-size: clamp(30px, 5vw, 48px);
+    margin-bottom: 15px;
+}
+
+.home-content p {
+    color: var(--cream);
+    font-size: 17px;
+    margin-bottom: 25px;
+}
+
+/* ---------- COLLECTION PAGE ---------- */
+
+#products {
+    max-width: 1350px;
+    margin: auto;
+    text-align: center;
+}
+
+.section-title {
+    color: var(--gold);
+    font-size: clamp(28px, 5vw, 42px);
+    margin: 25px 0 5px;
+}
+
+.section-subtitle {
+    color: var(--muted);
+    margin-bottom: 25px;
+}
+
+.category-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin: 20px auto 30px;
+}
+
+.category-buttons button {
+    background: transparent;
+    color: var(--gold);
+}
+
+.category-buttons button:hover {
+    background: var(--gold);
+    color: var(--black);
+}
+
+/* ---------- PRODUCT GRID ---------- */
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(230px, 1fr)
+    );
+    gap: 25px;
+    margin: 25px 0 35px;
+    text-align: left;
+}
+
+.product-card {
+    overflow: hidden;
+    background: var(--card);
+    border: 1px solid #302a1b;
+    border-radius: 12px;
+    transition: 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--gold);
+    box-shadow: 0 12px 30px rgba(212, 175, 55, 0.13);
+}
+
+.product-card img {
+    display: block;
+    width: 100%;
+    height: 310px;
+    object-fit: cover;
+    background: #28231a;
+}
+
+.product-card h3 {
+    color: var(--gold);
+    font-size: 20px;
+    margin: 15px 15px 5px;
+}
+
+.product-card p {
+    color: #dddddd;
+    font-size: 14px;
+    margin: 8px 15px;
+}
+
+.product-card .rating {
+    color: var(--gold-light);
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+
+.product-card .price {
+    color: var(--gold);
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.product-card button {
+    margin: 12px 15px 18px;
+}
+
+/* ---------- DRESS DETAILS ---------- */
+
+#dressDetails {
+    max-width: 1050px;
+    margin: auto;
+    text-align: center;
+}
+
+#dressDetailsContent {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(280px, 1fr)
+    );
+    gap: 30px;
+    align-items: center;
+    padding: 30px 0;
+    text-align: left;
+}
+
+#dressDetailsContent img {
+    width: 100%;
+    max-height: 570px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+#dressDetailsContent h2 {
+    color: var(--gold);
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+#dressDetailsContent p {
+    color: var(--cream);
+    margin: 12px 0;
+}
+
+#dressDetailsContent .rating {
+    color: var(--gold-light);
+}
+
+#dressDetailsContent .price {
+    color: var(--gold);
+    font-size: 26px;
+    font-weight: 800;
+}
+
+/* ---------- BOOKING PAGE ---------- */
+
+#booking {
+    background:
+        radial-gradient(
+            ellipse at top left,
+            rgba(212, 175, 55, 0.1),
+            transparent 50%
+        ),
+        var(--black);
+}
+
+#booking .form-container > h2 {
+    line-height: 1.3;
+}
+
+#booking form > p {
+    color: var(--cream);
+    font-size: 17px;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+#ticketPrice {
+    color: var(--gold);
+    font-size: 23px;
+    font-weight: 800;
+}
+
+/* ---------- DIGITAL TICKET ---------- */
+
+#ticketResult {
+    max-width: 700px;
+    margin: 25px auto;
+    text-align: center;
+}
+
+.ticket-card {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 30px 22px;
+    color: #181818;
+    background: linear-gradient(
+        135deg,
+        #fffdf4,
+        #f3e4b5
+    );
+    border: 3px solid var(--gold);
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(212, 175, 55, 0.16);
+}
+
+.ticket-card h2 {
+    color: #8b6914;
+    font-size: clamp(24px, 5vw, 35px);
+    letter-spacing: 3px;
+}
+
+.ticket-card h3 {
+    margin: 10px 0;
+    color: #252015;
+    overflow-wrap: anywhere;
+}
+
+.ticket-card p {
+    margin: 8px 0;
+    color: #333;
+}
+
+#ticketDetails {
+    margin: 20px 0;
+    padding: 15px;
+    border-top: 1px dashed #9d823c;
+    border-bottom: 1px dashed #9d823c;
+    text-align: left;
+    overflow-wrap: anywhere;
+}
+
+.qr-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+#ticketQR {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    background: #fff;
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+#ticketNumber {
+    font-family: monospace;
+    letter-spacing: 2px;
+}
+
+#ticketStatus {
+    color: #176b38;
+    font-weight: 800;
+}
+
+/* ---------- DEMO SCANNER ---------- */
+
+#scanner {
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(212, 175, 55, 0.09),
+            transparent 55%
+        ),
+        var(--black);
+}
+
+#scanner .form-container {
+    text-align: center;
+}
+
+#scanner h2 {
+    margin-bottom: 15px;
+}
+
+#scanner .form-container > p {
+    color: var(--cream);
+}
+
+#scannerMessage {
+    margin: 18px 0;
+}
+
+/* ---------- ACCESSIBILITY ---------- */
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* ---------- MOBILE RESPONSIVE ---------- */
+
+@media (max-width: 600px) {
+    .page {
+        padding: 16px 12px;
+    }
+
+    header {
+        padding: 20px 8px;
+    }
+
+    header h1 {
+        letter-spacing: 3px;
+    }
+
+    header p {
+        letter-spacing: 2px;
+    }
+
+    .welcome-content {
+        margin: 65px auto;
+    }
+
+    .form-container {
+        padding: 24px 17px;
+        margin: 22px auto;
+    }
+
+    nav {
+        gap: 3px;
+    }
+
+    nav button {
+        min-width: 0;
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+    .category-buttons button {
+        padding: 10px 13px;
+        font-size: 12px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .product-card img {
+        height: 210px;
+    }
+
+    .product-card h3 {
+        font-size: 16px;
+        margin: 10px 10px 5px;
+    }
+
+    .product-card p {
+        font-size: 12px;
+        margin: 7px 10px;
+    }
+
+    .product-card button {
+        margin: 10px;
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    #dressDetailsContent {
+        grid-template-columns: 1fr;
+    }
+
+    #dressDetailsContent img {
+        max-height: 420px;
+    }
+
+    .ticket-card {
+        padding: 22px 14px;
+    }
+
+    #ticketQR {
+        width: 155px;
+        height: 155px;
+    }
+}
+
+/* ---------- PRINT TICKET ONLY ---------- */
+
+@media print {
+    body {
+        background: #ffffff !important;
+        color: #000000 !important;
+    }
+
+    body * {
+        visibility: hidden !important;
+    }
+
+    #ticketResult,
+    #ticketResult * {
+        visibility: visible !important;
+    }
+
+    #ticketResult {
+        display: block !important;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    #printableTicket {
+        width: 100%;
+        max-width: 650px;
+        margin: 0 auto;
+        box-shadow: none;
+        border: 2px solid #b18b22;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    #ticketResult > button {
+        display: none !important;
+    }
+}
+
+/* ---------- REDUCED MOTION ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
